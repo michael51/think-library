@@ -14,6 +14,6 @@ class Tools
 	}
 
 	public static function hi() {
-		echo 'hi';
+		echo 'hi Michael';
 	}
 }
