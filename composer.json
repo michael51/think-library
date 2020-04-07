@@ -1,0 +1,20 @@
+{
+    "name": "michaelray/test_composer",
+    "description": "this is test",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MichaelRay",
+            "email": "michaelray@vip.qq.com"
+        }
+    ],
+    "require": {
+        "php":">=7.0.0"
+    },
+    "autoload": {
+        "psr-4":{
+            "Tools\\":"src/Tools"
+        }
+    }
+}
