@@ -1,6 +1,6 @@
 {
     "name": "thunder-future/think-library",
-    "description": "this is test",
+    "description": "修复think-library一些BUG",
     "type": "project",
     "license": "MIT",
     "authors": [
