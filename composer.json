@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4":{
-            "Tools\\":"src/Tools"
+            "Tools\\":"src/Controller"
         }
     }
 }
