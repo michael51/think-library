@@ -6,7 +6,7 @@
  * Time: 18:01
  */
 
-namespace thunder_library\helper;
+namespace helper;
 
 use library\helper\QueryHelper as LibraryQueryHelper;
 use library\helper\PageHelper;

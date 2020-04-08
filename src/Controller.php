@@ -7,9 +7,7 @@
  * 修复原有的QueryHelper，不支持关联联合查询的BUG。
  */
 
-namespace thunder_library;
-
-use thunder_library\helper\QueryHelper;
+use helper\QueryHelper;
 
 class Controller extends \library\Controller
 {
