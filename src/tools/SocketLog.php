@@ -12,7 +12,7 @@ class SocketLog
 	public static $start_time   = 0;
 	public static $start_memory = 0;
 	public static $port         = 1116;//SocketLog 服务的http的端口号
-	public static $log_types    = array('log', 'info', 'error', 'warn', 'table', 'group', 'groupCollapsed', 'groupEnd', 'alert');
+	public static $log_types    = ['log', 'info', 'error', 'warn', 'table', 'group', 'groupCollapsed', 'groupEnd', 'alert'];
 
 	protected static $_instance;
 
@@ -30,19 +30,19 @@ class SocketLog
 			'allow_client_ids'    => []
 		];
 
-	public static $logs = array();
+	public static $logs = [];
 
 	protected static $css
-		= array(
+		= [
 			'sql'           => 'color:#009bb4;',
 			'sql_warn'      => 'color:#009bb4;font-size:14px;',
 			'error_handler' => 'color:#f4006b;font-size:14px;',
 			'page'          => 'color:#40e2ff;background:#171717;'
-		);
+		];
 
 	public static function __callStatic ($method, $args)
 	{
-		self::setConfig([]);
+		self::setConfig(config('log.socket_log'));
 		if (in_array($method, self::$log_types)) {
 			array_unshift($args, $method);
 
@@ -318,7 +318,7 @@ class SocketLog
 	//设置配置
 	public static function setConfig ($config)
 	{
-		$config       = array_merge(self::$config, $config);
+		$config = array_merge(self::$config, $config);
 		self::$config = $config;
 		if (self::check()) {
 			self::getInstance(); //强制初始化SocketLog实例
