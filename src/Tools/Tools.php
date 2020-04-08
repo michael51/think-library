@@ -5,7 +5,7 @@
  * Date: 2020/4/7
  * Time: 21:18
  */
-namespace Tools;
+namespace thunder_library\Tools;
 
 class Tools
 {
