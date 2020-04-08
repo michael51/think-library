@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4":{
-            "ThunderLibrary\\":"src/Controller"
+            "thunder_library\\":"src/Controller"
         }
     }
 }
