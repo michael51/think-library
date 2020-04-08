@@ -8,10 +8,10 @@
 
 namespace thunder\library\helper;
 
+use library\helper\QueryHelper as LibraryQueryHelper;
 use library\helper\PageHelper;
-use think\db\Query;
 
-class QueryHelper extends \library\helper\QueryHelper
+class QueryHelper extends LibraryQueryHelper
 {
 	/**
 	 * 设置Like查询条件

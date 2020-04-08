@@ -9,10 +9,12 @@
 
 namespace thunder\library;
 
+use thunder\library\helper\QueryHelper;
+
 class Controller extends \library\Controller
 {
 	protected function _query($dbQuery)
 	{
-		return \thunder\library\helper\QueryHelper::instance()->init($dbQuery);
+		return QueryHelper::instance()->init($dbQuery);
 	}
 }

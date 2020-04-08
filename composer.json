@@ -1,5 +1,5 @@
 {
-    "name": "michaelray2/test_composer2",
+    "name": "thunder-future/think-library",
     "description": "this is test",
     "type": "project",
     "license": "MIT",
@@ -11,6 +11,7 @@
     ],
     "require": {
         "php":">=7.0.0",
+        "topthink/framework": "5.1.*",
         "zoujingli/think-library": "5.1.*-dev"
     },
     "autoload": {
