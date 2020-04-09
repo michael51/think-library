@@ -1,7 +1,7 @@
 .idea/
 vendor
-thinkphp
-application
-config
-public
-runtime
+/thinkphp
+/application
+/config
+/public
+/runtime
