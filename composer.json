@@ -15,6 +15,14 @@
     "autoload": {
         "psr-4":{
             "MichaelRay\\ThinkLibrary\\":"src"
+        },
+        "files": [
+            "src/common.php"
+        ]
+    },
+    "extra": {
+        "think-config": {
+            "socket_log": "src/config/socket_log.php"
         }
     },
     "repositories": {
