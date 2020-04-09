@@ -1,7 +1,7 @@
 {
     "name": "michaelray/think-library",
     "description": "基于think-library做了一些扩展",
-    "type": "project",
+    "type": "think-extend",
     "license": "MIT",
     "authors": [
         {
