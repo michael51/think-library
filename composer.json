@@ -19,8 +19,6 @@
             "src/common.php"
         ]
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "extra": {
         "think-config": {
             "socket_log": "src/config/socket_log.php"
