@@ -10,7 +10,6 @@
         }
     ],
     "require": {
-        "php":">=7.0.0"
     },
     "autoload": {
         "psr-4":{
@@ -20,6 +19,7 @@
             "src/common.php"
         ]
     },
+    "minimum-stability": "dev",
     "extra": {
         "think-config": {
             "socket_log": "src/config/socket_log.php"
