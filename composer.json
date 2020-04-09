@@ -1,6 +1,6 @@
 {
-    "name": "michaelray/thunder-library",
-    "description": "雷霆科技工具库",
+    "name": "michaelray/think-library",
+    "description": "基于think-library做了一些扩展",
     "type": "project",
     "license": "MIT",
     "authors": [
@@ -14,7 +14,13 @@
     },
     "autoload": {
         "psr-4":{
-            "thunder_library\\":"src"
+            "MichaelRay\\ThinkLibrary\\":"src"
+        }
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer"
         }
     }
 }
