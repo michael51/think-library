@@ -6,31 +6,31 @@
  * Time: 13:26
  */
 
-use MichaelRay\ThinkLibrary\SocketLog;
+use MichaelRay\ThinkLibrary\tools\SocketLog;
 
-if ( !function_exists('slogStart')) {
-	function slogStart ()
+if ( !function_exists('slog_start')) {
+	function slog_start ()
 	{
 		SocketLog::$logs = [];
 	}
 }
 
-if ( !function_exists('slogEnd')) {
-	function slogEnd ()
+if ( !function_exists('slog_end')) {
+	function slog_end ()
 	{
 		SocketLog::sendLog();
 	}
 }
 
-if ( !function_exists('slogGroup')) {
-	function slogGroup ($var)
+if ( !function_exists('slog_group')) {
+	function slog_group ($var)
 	{
 		return slog($var, 'group');
 	}
 }
 
-if ( !function_exists('slogGroupEnd')) {
-	function slogGroupEnd ()
+if ( !function_exists('slog_group_end')) {
+	function slog_group_end ()
 	{
 		return slog('', 'groupEnd');
 	}

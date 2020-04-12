@@ -10,6 +10,10 @@
         }
     ],
     "require": {
+        "php": ">=5.6",
+        "zoujingli/think-library": "5.1.*-dev",
+		"ext-curl": "*",
+        "ext-json": "*"
     },
     "autoload": {
         "psr-4":{
@@ -21,7 +25,8 @@
     },
     "extra": {
         "think-config": {
-            "socket_log": "src/config/socket_log.php"
+            "socket_log": "src/config/socket_log.php",
+            "verification": "src/config/verification.php"
         }
     },
     "repositories": {

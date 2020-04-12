@@ -5,7 +5,7 @@
  * michaelray 改进版 www.michaelray.cn
  */
 
-namespace MichaelRay\ThinkLibrary;
+namespace MichaelRay\ThinkLibrary\tools;
 
 use think\facade\Config;
 
@@ -67,8 +67,8 @@ class SocketLog
 	{
 		if (is_string($type)) {
 			$type = preg_replace_callback('/_([a-zA-Z])/', create_function('$matches', 'return strtoupper($matches[1]);'), $type);
-			if (method_exists('\MichaelRay\ThinkLibrary\SocketLog', $type) || in_array($type, \MichaelRay\ThinkLibrary\SocketLog::$log_types)) {
-				return call_user_func(['\MichaelRay\ThinkLibrary\SocketLog', $type], $log, $css);
+			if (method_exists('\MichaelRay\ThinkLibrary\tools\SocketLog', $type) || in_array($type, \MichaelRay\ThinkLibrary\tools\SocketLog::$log_types)) {
+				return call_user_func(['\MichaelRay\ThinkLibrary\tools\SocketLog', $type], $log, $css);
 			}
 		}
 
