@@ -60,7 +60,7 @@ class Http
 		if (is_array($params)) {
 			$params = json_encode($params);
 		}
-
+		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, [
@@ -77,5 +77,4 @@ class Http
 
 		return $result;
 	}
-
 }

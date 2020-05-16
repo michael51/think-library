@@ -299,7 +299,6 @@ class SocketLog
 		}
 
 		$tabid = self::getClientArg('tabid');
-
 		$client_id = self::getClientArg('client_id');
 
 		//是否记录日志的检查
@@ -428,6 +427,7 @@ class SocketLog
 
 		$time_str   = '';
 		$memory_str = '';
+
 		if (self::$start_time) {
 			$runtime  = microtime(true) - self::$start_time;
 			$reqs     = number_format(1 / $runtime, 2);
@@ -473,7 +473,7 @@ class SocketLog
 			'css'  => '',
 		);
 
-		$tabid = self::getClientArg('tabid');
+		$tabId = self::getClientArg('tabid');
 
 		if ( !$client_id = self::getClientArg('client_id')) {
 			$client_id = '';
@@ -481,16 +481,17 @@ class SocketLog
 		if ($force_client_id = self::getConfig('force_client_id')) {
 			$client_id = $force_client_id;
 		}
-		$logs = array(
-			'tabid'           => $tabid,
+		$logs = [
+			'tabid'           => $tabId,
 			'client_id'       => $client_id,
 			'logs'            => self::$logs,
 			'force_client_id' => $force_client_id,
-		);
+		];
 
 		$msg = @json_encode($logs);
 
 		$address = '/' . $client_id; //将client_id作为地址， server端通过地址判断将日志发布给谁
+
 		self::send(self::getConfig('host'), $msg, $address);
 	}
 
