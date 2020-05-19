@@ -340,7 +340,7 @@ class SocketLog
 
 		if (empty($args)) {
 			if ( !preg_match('/SocketLog\((.*?)\)/', $_SERVER[ $key ], $match)) {
-				$args = array('tabid' => null);
+				$args = ['tabid' => null];
 
 				return null;
 			}

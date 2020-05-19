@@ -42,3 +42,10 @@ if ( !function_exists('slog')) {
 		return SocketLog::slog($log, $type, $css);
 	}
 }
+
+if ( !function_exists('slog_big')) {
+	function slog_big ($log)
+	{
+		return SocketLog::big($log);
+	}
+}
