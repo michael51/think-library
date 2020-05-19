@@ -11,10 +11,10 @@ use think\facade\Config;
 
 class SocketLog
 {
-	public static $start_time   = 0;
-	public static $start_memory = 0;
-	public static $port         = 1116;//SocketLog 服务的http的端口号
-	public static $log_types    = ['log', 'info', 'error', 'warn', 'table', 'group', 'groupCollapsed', 'groupEnd', 'alert'];
+	public static $startTime   = 0;
+	public static $startMemory = 0;
+	public static $port        = 1116;//SocketLog 服务的http的端口号
+	public static $logTypes    = ['log', 'info', 'error', 'warn', 'table', 'group', 'groupCollapsed', 'groupEnd', 'alert'];
 
 	protected static $_instance;
 
@@ -46,10 +46,11 @@ class SocketLog
 	{
 		$config = Config::get('socket_log.');
 		self::setConfig($config);
-		if (in_array($method, self::$log_types)) {
+
+		if (in_array($method, self::$logTypes)) {
 			array_unshift($args, $method);
 
-			return call_user_func_array(array(self::getInstance(), 'record'), $args);
+			return call_user_func_array([self::getInstance(), 'record'], $args);
 		}
 	}
 
@@ -67,7 +68,7 @@ class SocketLog
 	{
 		if (is_string($type)) {
 			$type = preg_replace_callback('/_([a-zA-Z])/', create_function('$matches', 'return strtoupper($matches[1]);'), $type);
-			if (method_exists('\MichaelRay\ThinkLibrary\tools\SocketLog', $type) || in_array($type, \MichaelRay\ThinkLibrary\tools\SocketLog::$log_types)) {
+			if (method_exists('\MichaelRay\ThinkLibrary\tools\SocketLog', $type) || in_array($type, \MichaelRay\ThinkLibrary\tools\SocketLog::$logTypes)) {
 				return call_user_func(['\MichaelRay\ThinkLibrary\tools\SocketLog', $type], $log, $css);
 			}
 		}
@@ -298,11 +299,11 @@ class SocketLog
 			return false;
 		}
 
-		$tabid = self::getClientArg('tabid');
+		$tabId = self::getClientArg('tabid');
 		$client_id = self::getClientArg('client_id');
 
 		//是否记录日志的检查
-		if ( !$tabid && !self::getConfig('force_client_id')) {
+		if ( !$tabId && !self::getConfig('force_client_id')) {
 			return false;
 		}
 
@@ -310,7 +311,7 @@ class SocketLog
 		$allow_client_ids = self::getConfig('allow_client_ids');
 
 		if ( !empty($allow_client_ids)) {
-			if ( !$tabid && in_array(self::getConfig('force_client_id'), $allow_client_ids)) {
+			if ( !$tabId && in_array(self::getConfig('force_client_id'), $allow_client_ids)) {
 				return true;
 			}
 
@@ -360,8 +361,8 @@ class SocketLog
 		if (self::check()) {
 			self::getInstance(); //强制初始化SocketLog实例
 			if ($config['optimize']) {
-				self::$start_time   = microtime(true);
-				self::$start_memory = memory_get_usage();
+				self::$startTime   = microtime(true);
+				self::$startMemory = memory_get_usage();
 			}
 
 			if ($config['error_handler']) {
@@ -428,13 +429,13 @@ class SocketLog
 		$time_str   = '';
 		$memory_str = '';
 
-		if (self::$start_time) {
-			$runtime  = microtime(true) - self::$start_time;
+		if (self::$startTime) {
+			$runtime  = microtime(true) - self::$startTime;
 			$reqs     = number_format(1 / $runtime, 2);
 			$time_str = "[运行时间：{$runtime}s][吞吐率：{$reqs}req/s]";
 		}
-		if (self::$start_memory) {
-			$memory_use = number_format(memory_get_usage() - self::$start_memory / 1024, 2);
+		if (self::$startMemory) {
+			$memory_use = number_format(memory_get_usage() - self::$startMemory / 1024, 2);
 			$memory_str = "[内存消耗：{$memory_use}kb]";
 		}
 
