@@ -108,10 +108,18 @@ class SocketLog
 	{
 		self::slog($log, 'log','color:green;font-weight:bold');
 	}
+	public static function slogSuccessBig ($log)
+	{
+		self::slog($log, 'log','font-size:20px;color:green;font-weight:bold');
+	}
 
 	public static function slogHandle ($log)
 	{
 		self::slog($log, 'log','color:#009bb4;');
+	}
+	public static function slogHandleBig ($log)
+	{
+		self::slog($log, 'log','font-size:20px;color:#009bb4;');
 	}
 
 	public static function trace ($msg, $trace_level = 2, $css = '')

@@ -69,10 +69,23 @@ if ( !function_exists('slog_success')) {
 		return SocketLog::slogSuccess($log);
 	}
 }
+if ( !function_exists('slog_success_big')) {
+	function slog_success_big($log)
+	{
+		return SocketLog::slogSuccessBig($log);
+	}
+}
 
 if ( !function_exists('slog_handle')) {
 	function slog_handle($log)
 	{
 		return SocketLog::slogHandle($log);
+	}
+}
+
+if ( !function_exists('slog_handle_big')) {
+	function slog_handle_big($log)
+	{
+		return SocketLog::slogHandleBig($log);
 	}
 }
