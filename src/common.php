@@ -49,3 +49,30 @@ if ( !function_exists('slog_big')) {
 		return SocketLog::big($log);
 	}
 }
+
+if ( !function_exists('slog_warn')) {
+	function slog_warn($log)
+	{
+		return SocketLog::slogWarn($log);
+	}
+}
+if ( !function_exists('slog_error')) {
+	function slog_error($log)
+	{
+		return SocketLog::slogError($log);
+	}
+}
+
+if ( !function_exists('slog_success')) {
+	function slog_success($log)
+	{
+		return SocketLog::slogSuccess($log);
+	}
+}
+
+if ( !function_exists('slog_handle')) {
+	function slog_handle($log)
+	{
+		return SocketLog::slogHandle($log);
+	}
+}

@@ -94,6 +94,26 @@ class SocketLog
 		self::log($log, 'font-size:20px;color:red;');
 	}
 
+	public static function slogWarn ($log)
+	{
+		self::slog($log, 'warn');
+	}
+
+	public static function slogError ($log)
+	{
+		self::slog($log, 'error');
+	}
+
+	public static function slogSuccess ($log)
+	{
+		self::slog($log, 'log','color:green;font-weight:bold');
+	}
+
+	public static function slogHandle ($log)
+	{
+		self::slog($log, 'log','color:#009bb4;');
+	}
+
 	public static function trace ($msg, $trace_level = 2, $css = '')
 	{
 		if ( !self::check()) {
