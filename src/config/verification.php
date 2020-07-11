@@ -9,5 +9,5 @@
 
 return [
 	//使用HMAC生成信息摘要时所使用的全站通信密钥
-	'key' => '123456'
+	'key' => 'CokdaBw4zLbqiQgM'
 ];

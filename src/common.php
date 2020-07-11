@@ -89,3 +89,36 @@ if ( !function_exists('slog_handle_big')) {
 		return SocketLog::slogHandleBig($log);
 	}
 }
+
+
+function get_this_url ()
+{
+	return $_SERVER["REQUEST_SCHEME"] . '://' . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
+}
+
+
+function get_site_root ()
+{
+	return $_SERVER["REQUEST_SCHEME"] . '://' . $_SERVER["SERVER_NAME"] ;
+}
+
+
+function get_module_statics ($file)
+{
+	$path = \Env::get('root_path') . '/public/static/' . $file;
+	return '/static/' . $file . "?tid=" . filemtime($path);
+}
+
+
+function get_dist_js_path ($file)
+{
+	$jsPath = config('app.dist_js_path');
+	$path = \Env::get('root_path') . '/public/static/dist/'.$jsPath.'/' . $file;
+
+	return '/static/dist/'. $jsPath.'/'. $file . "?v=" . filemtime($path);
+}
+
+function get_file_time($path){
+	return filemtime(\Env::get('root_path') . '/public/'.$path);
+}
+
